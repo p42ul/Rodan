@@ -58,7 +58,8 @@ urlpatterns += patterns('rodan.views.workflows',
 )
 
 urlpatterns += patterns('rodan.views.jobs',
-    url(r'^jobs/(?P<job_slug>[^/]+)', 'view'),
+    url(r'^jobs/barline-input/help', 'help'),
+    url(r'^jobs/(?P<job_slug>[^/]+)', 'view') 
 )
 
 urlpatterns += patterns('rodan.views.pages',
