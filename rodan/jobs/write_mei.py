@@ -24,5 +24,6 @@ class CombineMei(JobBase):
     show_during_wf_create = True
     is_automatic = True
     outputs_image = False
+    outputs_mei = True
     task = combine_mei
     all_pages = True

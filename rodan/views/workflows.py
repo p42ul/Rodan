@@ -25,6 +25,8 @@ def view(request, workflow):
         'num_to_fill': num_per_row - (len(pages) % num_per_row),
     }
 
+    print workflow.jobitem_set.all()[7]
+
     return ('View workflow', data)
 
 @rodan_view(Workflow)

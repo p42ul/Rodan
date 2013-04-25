@@ -1,5 +1,6 @@
 from django import template
 from django.conf import settings
+import os
 
 register = template.Library()
 
@@ -14,6 +15,18 @@ def get_range(end, start=1):
 @register.simple_tag
 def get_thumb_for_job(page, job=None, size=settings.SMALL_THUMBNAIL):
     return page.get_thumb_url(job=job, size=size)
+
+@register.simple_tag
+def get_output_for_job(page, job=None, size=settings.SMALL_THUMBNAIL):
+    '''
+    Return url of outputs that are not images.
+    '''
+    if job.outputs_mei:
+        return settings.MEDIA_URL + page._get_job_path(job, 'mei')
+    elif job.outputs_txt:
+        return settings.MEDIA_URL + page._get_job_path(job, 'txt')
+    else:
+        return "#"
 
 @register.filter
 def is_job_complete(page, job_item):

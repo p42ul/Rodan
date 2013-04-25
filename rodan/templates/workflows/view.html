@@ -72,7 +72,18 @@
         <tr>
             <td>{{ job_item.job }}</td>
             {% for page in page_section %}
-                <td>{% if page|is_job_complete:job_item %}{% if job_item.job.get_object.outputs_image %}<img src="{% get_thumb_for_job page job_item.job %}" />{% else %}This job does not output an image.{% endif %}{% else %}This job is incomplete.{% endif %}</td>
+                <td>
+                    {% if page|is_job_complete:job_item %}
+                        {% if job_item.job.get_object.outputs_image %}
+                        <img src="{% get_thumb_for_job page job_item.job %}" />
+                        {% else %}
+                        <a href="{% get_output_for_job page job_item.job.get_object %}">Download Result</a>
+                        {% endif %}
+                    {% else %}
+                        This job is incomplete.
+                    {% endif %}
+                </td>
+
             {% endfor %}
             {% if outer_last %}
             {% for i in num_to_fill|get_range %}

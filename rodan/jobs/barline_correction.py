@@ -24,6 +24,7 @@ class BarlineCorrection(JobBase):
     }
     task = barline_correction
     outputs_image = False
+    outputs_mei = True
 
     def get_context(self, page):
         input_mei_path = page.get_latest_file_path('mei')

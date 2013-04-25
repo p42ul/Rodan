@@ -16,9 +16,11 @@ class BarlineInput(JobBase):
     output_type = JobType.STAFFGROUP_INPUT
     description = 'Describe the staff groups of a page'
     name = 'Barline Input'
+    slug = 'barline-input'
     show_during_wf_create = True
     is_automatic = False
     outputs_image = False
+    outputs_txt = True
     parameters = {
         'sequence': ''
     }

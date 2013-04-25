@@ -43,3 +43,4 @@ class BarFinder(JobBase):
     }
     task = barfinder
     outputs_image = False
+    outputs_mei = True

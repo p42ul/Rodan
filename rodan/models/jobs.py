@@ -6,6 +6,8 @@ from rodan.utils import remove_prefixes
 class JobBase:
     is_automatic = False
     outputs_image = True
+    outputs_mei = False
+    outputs_txt = False
     name = ''
     slug = ''
     description = ''
