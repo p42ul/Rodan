@@ -1,6 +1,13 @@
-Rodan
-=====
+# rodan website
+New project site for Rodan. 
 
-Rodan is a web-based document recognition system.
+For local development, install [Jekyll](http://jekyllrb.com/), and in the root directory of this branch run
+```
+jekyll serve -w --baseurl /
+```
 
-For information on installation and other topics, please go to the [wiki](https://github.com/DDMAL/Rodan/wiki).
+Using [uncss](https://github.com/giakki/uncss) to remove unused Bootstrap rules using the following command:
+
+```
+uncss -s css/bootstrap.css http://ddmal.github.io/rodan/ http://ddmal.github.io/rodan/download http://ddmal.github.io/rodan/doc http://ddmal.github.io/rodan/about > minified.css
+```

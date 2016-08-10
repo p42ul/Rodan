@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Rodan - A web-based workflow engine</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="/rodan/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/rodan/css/main.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/rodan/"><img src="/rodan/img/rodan-logo-sm.png" /></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+            <li><a href="/rodan/download/">Download</a></li>
+            <li><a href="/rodan/doc/">Documentation</a></li>
+            <li><a href="http://github.com/ddmal/rodan">GitHub</a></li>
+            <li><a href="/rodan/about/">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Uncomment for major release announcements
+<section class="banner">
+    <div class="container">
+        <div class="row">
+            <h3><a href="https://github.com/ddmal/rodan/wiki">New version 4.1 with IIIF Support!</a></h3>
+        </div>
+    </div>
+</section> -->
+<section class="jumbotron">
+    <div class="container">
+        <h2>Rodan; A workflow engine, developed by the Distributed Digital Music Archives Libraries (DDMAL) lab</h2>
+    </div>
+</section>
+
+<section class="feature light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-push-8 vcenter">
+                <h2>Upload Resources</h2>
+                <p>You can choose the type of the Resource you are adding or choose the default type (application/octet-stream)</p>
+            </div><!--
+         --><div class="col-md-8 col-md-pull-4 vcenter">
+                 <video id="feature-picture" preload="auto" loop class="img-responsive window-shadow">
+                     <source src="/rodan/mov/01-upload-resource.mp4" type="video/mp4">
+                     <source src="/rodan/mov/01-upload-resource.webm" type="video/webm">
+                 </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 vcenter">
+                <h2>Run Workflows</h2>
+                <p>Managing Workflows is the main feature provided by Rodan. After creating a Workflow, add one or more Jobs and connect them to make a valid Workflow. Run the Workflow and wait for the status to change to FINISHED. </p>
+            </div><!--
+         --><div class="col-md-8 vcenter">
+                 <video id="feature-speed" preload="auto" loop class="img-responsive window-shadow">
+                     <source src="/rodan/mov/02-run-workflow.mp4" type="video/mp4">
+                     <source src="/rodan/mov/02-run-workflow.webm" type="video/webm">
+                 </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="container">
+        <div>
+            <div>
+                <div class="ficon">
+                <h3>Open Source</h3></div>
+                <p>Rodan is 100% free software, meaning that anyone can modify or distribute it. Help us improve and extend Rodan by forking our <a href="http://github.com/ddmal/rodan">GitHub repository</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="/rodan/js/video.js"></script>
+
+<section id="footer">
+    <div class="container">
+        <footer>
+        <div class="row">
+            <div class="col-md-12 footnav">
+                <nav>
+                    <ul>
+                        <li><p>Rodan</p></li>
+                        <li><a href="/rodan/about/">About</a></li>
+                        <li><a href="/rodan/download/">Download</a></li>
+                        <li><a href="/rodan/doc/">Documentation</a></li>
+                        <li><a href="https://github.com/DDMAL/Rodan">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="http://ddmal.music.mcgill.ca"><img src="/rodan/img/ddmal-logo.png" alt="Distributed Digital Music Archives and Libraries" /></a>
+                <p>2016 Distributed Digital Music Archives and Libraries</p>
+        </div>
+        </footer>
+    </div>
+</section>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/rodan/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="/rodan/js/vendor/bootstrap.min.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script type="text/javascript">
+(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+e.src='//www.google-analytics.com/analytics.js';
+r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+ga('create','UA-2371659-5');ga('send','pageview');
+</script>
+
+</body>
+</html>
+
