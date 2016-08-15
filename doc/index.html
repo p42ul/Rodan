@@ -17,30 +17,26 @@ title: Documentation
             <div class="row">
                 <div class="col-md-4 col-md-push-8 vcenter">
                     <p><img src="{{ site.baseurl }}img/rodan-softwares/rodan-softwares.png"/ border="0" style="max-width:120%"></p>
-                </div><!--
-             --><div class="col-md-8 col-md-pull-4 vcenter">
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/celery.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>Celery</big>: Celery is the task queue used by Rodan to distribute the tasks to the workers</p>
+                </div>
+                <div class="col-md-8 col-md-pull-4 vcenter">
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/celery.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>Celery</big>: Celery is the task queue used by Rodan to distribute the tasks to the workers</p>
                         <br>
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/rabbitmq.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>RabbitMQ</big>: RabbitMQ is the messaging broker used to connect Rodan server to Celery</p>
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/rabbitmq.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>RabbitMQ</big>: RabbitMQ is the messaging broker used to connect Rodan server to Celery</p>
                         <br>
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/nfs.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>NFS</big>: Network File System (NFS) helps the workers to access the resources on the server</p>
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/nfs.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>NFS</big>: Network File System (NFS) helps the workers to access the resources on the server</p>
                         <br>
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/redis.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>Redis</big>: Redis is used as message broker for backend websocket messaging</p>
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/redis.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>Redis</big>: Redis is used as message broker for backend websocket messaging</p>
                         <br>
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/nginx.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>Nginx</big>: Nginx is the HTTP and reverse proxy server used to connect Rodan to Internet</p>
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/nginx.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>Nginx</big>: Nginx is the HTTP and reverse proxy server used to connect Rodan to Internet</p>
                         <br>
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/wsgi.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>WSGI</big>: Web Server Gateway Interface (WSGI) is used as the interface between nginx and Django</p>
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/wsgi.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>WSGI</big>: Web Server Gateway Interface (WSGI) is used as the interface between nginx and Django</p>
                         <br>
-                        <p><img src="{{ site.baseurl }}img/rodan-softwares/postgresql.png" width="39" height="39" style="margin:0px 20px 0px 0px" align="left"> <big>PostgreSQL</big>: PostgreSQL is the database system used by Rodan</p>
+                        <p><img src="{{ site.baseurl }}img/rodan-softwares/postgresql.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>PostgreSQL</big>: PostgreSQL is the database system used by Rodan</p>
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1">
-                    <br>
-                    <br>
-                    <p align="center"><big>Now let's take a look at Rodans most important models:</big></p>
-                    <center><img src="{{ site.baseurl }}img/rodan-model.png"/ border="0" style="max-width:100%"></center>
-                    <br>
-                    <br>
+                    <h3 align="center">Entity-Relationship Diagram for Rodan</h3>
+                    <center><img src="{{ site.baseurl }}img/rodan-model.png" border="0" style="max-width:100%"></center>
                     <p>Each Project is created by a User. In each Project, You can upload Resources or a group of Resources (a ResourceList). A ResourceType is assigned to each Resource. ResourceTypes include text, image, midi, zip, etc.</p>
                     <p>Rodan uses different Job packages from other applications. It also has a few basic built-in Jobs. Some examples include convertions using PIL package such as conversion to PNG, TIF, JPEG2000. Each Job can get zero or more InputPortType and one or more OutputPortType.</p>
                     <p>You can create a Workflow in workflow tab, importing one or many Jobs which creates WorkflowJobs. Each WorkflowJob which present the imported Job and will have zero or many InputPorts and one or many OutputPorts. These ports will have the same ResourceType as the original Job. You can connect these jobs together in the Workflow. A connection happens between an OutputPort of a WorkflowJob and InputPort of another one only when they have the same ResourceType. An InputPort without a Resource assigned will result in the Workflow being 'invalid' and Workflow cannot be run.</p>
