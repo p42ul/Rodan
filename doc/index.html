@@ -7,6 +7,36 @@ title: Documentation
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">
+                    <h3>About Rodan</h3>
+                    <p>
+                    Rodan is a generic workflow execution system, where users can upload files (called "Resources") and define an 
+                    execution chain (a "Workflow") for processing these files. Each workflow is composed of "Jobs," the functionality 
+                    of which can be drawn from a shell executable or a Python library. Running a workflow will pass the resources through
+                    the chain of jobs, finishing with the output of the last job.
+                    </p>
+                    <p>
+                    A unique feature of Rodan is the "Interactive Job" system. During the execution of a workflow, an interactive job
+                    will allow human actors to complete a task as part of the workflow. This can be for quality control (verifying the output
+                    of an automated process), correction (adjusting the output of an automated process), or task completion (tasks for which humans
+                    perform better than machines).
+                    </p>
+                    <p>
+                    The Rodan server is accessed and controlled via a REST API, making it possible to create a wide variety of user interfaces and scripts
+                    to interact with and control workflow creation and execution. The Rodan Client is a general-purpose user interface, but other
+                    dedicated user interfaces can be created to interact with a particular part of the workflow process; for example, crowdsourcing interfaces
+                    may be built to distribute interactive job processes to a large audience of human actors.
+                    </p>
+                    <p>
+                    Rodan automatically parallelizes resource processing over a number of available worker systems. This provides the ability to
+                    process large numbers of files given a suitably large cluster of available computer systems. Once a job has finished executing, the
+                    output of the process is stored centrally, allowing the output of any job to be the input of any other job in a different workflow.
+                    </p>
+                    <p>To find out more about Rodan, please see the full documentation on our GitHub wiki.</p>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4">
                     <h3>Dependency Overview</h3>
                 </div>
             </div>
@@ -26,11 +56,7 @@ title: Documentation
             <div class="row">
                 <div class="col-md-12">
                     <h3>Entity-Relationship Diagram for Rodan</h3>
-                    <center><img src="{{ site.baseurl }}img/rodan-model.png" border="0" style="max-width:100%"></center>
-                    <p>Each Project is created by a User. In each Project, You can upload Resources or a group of Resources (a ResourceList). A ResourceType is assigned to each Resource. ResourceTypes include text, image, midi, zip, etc.</p>
-                    <p>Rodan uses different Job packages from other applications. It also has a few basic built-in Jobs. Some examples include convertions using PIL package such as conversion to PNG, TIF, JPEG2000. Each Job can get zero or more InputPortType and one or more OutputPortType.</p>
-                    <p>You can create a Workflow in workflow tab, importing one or many Jobs which creates WorkflowJobs. Each WorkflowJob which present the imported Job and will have zero or many InputPorts and one or many OutputPorts. These ports will have the same ResourceType as the original Job. You can connect these jobs together in the Workflow. A connection happens between an OutputPort of a WorkflowJob and InputPort of another one only when they have the same ResourceType. An InputPort without a Resource assigned will result in the Workflow being 'invalid' and Workflow cannot be run.</p>
-                    <p>Running a Workflow will produce a WorkflowRun and one RunJob for each of its WorkflowJobs. Each RunJob uses assigned Resources as its inputs and will produce one or more Resources as Outputs when the WorkflowRun is finished running. You can check the status of the WorkflowRun in WorkflowRun tab or you can see the status of each RunJob. The status can be PROCESSING, FAILED, FINISHED, etc.</p>
+                    <img src="{{ site.baseurl }}img/rodan-model.png" style="max-width:100%">
                 </div>
             </div>
             <div class="row">
