@@ -11,9 +11,6 @@ title: Documentation
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-md-push-8 vcenter">
-                    <p><img src="{{ site.baseurl }}img/rodan-softwares/rodan-softwares.png"/ border="0" style="max-width:120%"></p>
-                </div>
                 <div class="col-md-8 col-md-pull-4 vcenter">
                         <p><img src="{{ site.baseurl }}img/rodan-softwares/celery.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>Celery</big>: Celery is the task queue used by Rodan to distribute the tasks to the workers</p>
                         <p><img src="{{ site.baseurl }}img/rodan-softwares/rabbitmq.png" style=" height: 39px; margin:0px 20px 0px 0px;"> <big>RabbitMQ</big>: RabbitMQ is the messaging broker used to connect Rodan server to Celery</p>
@@ -22,8 +19,13 @@ title: Documentation
                         <p><img src="{{ site.baseurl }}img/rodan-softwares/nginx.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>Nginx</big>: Nginx is the HTTP and reverse proxy server used to connect Rodan to Internet</p>
                         <p><img src="{{ site.baseurl }}img/rodan-softwares/wsgi.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>WSGI</big>: Web Server Gateway Interface (WSGI) is used as the interface between nginx and Django</p>                        <p><img src="{{ site.baseurl }}img/rodan-softwares/postgresql.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>PostgreSQL</big>: PostgreSQL is the database system used by Rodan</p>
                 </div>
-                <div class="col-md-10 col-md-offset-1">
-                    <h3 align="center">Entity-Relationship Diagram for Rodan</h3>
+                <div class="col-md-4">
+                    <p><img src="{{ site.baseurl }}img/rodan-softwares/rodan-softwares.png"/ border="0" style="max-width:120%"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2">
+                    <h3>Entity-Relationship Diagram for Rodan</h3>
                     <center><img src="{{ site.baseurl }}img/rodan-model.png" border="0" style="max-width:100%"></center>
                     <p>Each Project is created by a User. In each Project, You can upload Resources or a group of Resources (a ResourceList). A ResourceType is assigned to each Resource. ResourceTypes include text, image, midi, zip, etc.</p>
                     <p>Rodan uses different Job packages from other applications. It also has a few basic built-in Jobs. Some examples include convertions using PIL package such as conversion to PNG, TIF, JPEG2000. Each Job can get zero or more InputPortType and one or more OutputPortType.</p>
