@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
@@ -23,15 +24,17 @@ class UserList(generics.ListCreateAPIView):
     """
     model = User
     permission_classes = (permissions.IsAuthenticated, CustomObjectPermissions)
+    _ignore_model_permissions = True
     serializer_class = UserListSerializer
 
     def get_queryset(self):
         queryset = User.objects.exclude(pk=-1)
         return queryset
 
+
     def post(self, request, *args, **kwargs):
-        userName = request.DATA.get('username', None)
-        userPass = request.DATA.get('password', None)
+        userName = request.data.get('username', None)
+        userPass = request.data.get('password', None)
         user = User.objects.create_user(username=userName, password=userPass)
         if not user:
             return Response({'message': "error creating user"}, status=status.HTTP_200_OK)
@@ -43,12 +46,18 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     Performs operations on a single User instance.
     """
     model = User
-    permission_classes = (permissions.IsAdminUser, )
+    permission_classes = (permissions.IsAuthenticated, )
+    _ignore_model_permissions = True
     serializer_class = UserSerializer
 
     def get_queryset(self):
         queryset = User.objects.exclude(pk=-1)
         return queryset
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.id == int(kwargs['pk']):
+            raise PermissionDenied("You cannot view this user's details")
+        return super(UserDetail, self).get(request, *args, **kwargs)
 
 
 @receiver(post_save, sender=User)
