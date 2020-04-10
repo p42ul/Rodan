@@ -47,6 +47,7 @@ from rodan.views.resource import (
     ResourceAcquireView,
 )
 from rodan.views.resourcelist import ResourceListList, ResourceListDetail
+from rodan.views.resourcelabel import ResourceLabelDetail
 from rodan.views.resourcetype import ResourceTypeList, ResourceTypeDetail
 from rodan.views.output import OutputList, OutputDetail
 from rodan.views.input import InputList, InputDetail
@@ -244,6 +245,11 @@ api_patterns = [
         ResourceTypeDetail.as_view(),
         name="resourcetype-detail",
     ),
+    url(
+        r"^resourcelabel/(?P<pk>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})/$",
+        ResourceLabelDetail.as_view(),
+        name="resourcelabel-detail",
+    )
     url(r"^outputs/$", OutputList.as_view(), name="output-list"),
     url(
         r"^output/(?P<pk>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})/$",
