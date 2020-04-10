@@ -33,6 +33,7 @@ from rest_framework.views import APIView
 from rodan.constants import task_status
 from rodan.models import (
     Resource,
+    ResourceLabel,
     ResourceType,
     Tempauthtoken,
 )
@@ -211,6 +212,22 @@ class ResourceDetail(generics.RetrieveUpdateDestroyAPIView):
                 print(str(e))
             if claimed_mimetype.startswith('image'):
                 registry.tasks['rodan.core.create_diva'].si(resource.uuid).apply_async()
+        
+        resource_label_pk = request.data.get('resource_label_id', None)
+        resource_label_name = request.data.get('resource_label_name', None)
+        if resource_label_pk and not resource_label_name:
+            try:
+                resource_label = ResourceLabel.objects.get(pk=resource_label_pk)
+                resource.label.add(resource_label)
+            except (Resolver404, ResourceLabel.DoesNotExist) as e:
+                print(str(e))
+        elif not resource_label_pk and resource_label_name:
+            try:
+                resource_label = ResourceLabel(name=resource_label_name)
+                resource_label.save()
+                resource.label.add(resource_label)
+            except (Resolver404, ResourceLabel.DoesNotExist) as e:
+                print(str(e))
 
         return self.partial_update(request, *args, **kwargs)
 
