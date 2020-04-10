@@ -1,13 +1,14 @@
+import logging
 import os
-import uuid
 import shutil
+import uuid
+
 from django.conf import settings
-from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from rodan.constants import task_status
+from django.db import models
 
-import logging
+from rodan.constants import task_status
 
 logger = logging.getLogger("rodan")
 
