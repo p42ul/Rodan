@@ -1,0 +1,380 @@
+/* global */
+
+/* clearfix */
+.rodan-tools:after, .rodan-tools-right:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    background-color: #f7f7f7;
+}
+
+section {
+    padding: 3em 0;
+}
+
+section.page {
+    padding: 1em;
+}
+
+.navbar-brand {
+    padding: 15px 0 0 0;
+}
+
+.navbar-nav > li > a, .navbar-brand, a.navbar-brand:hover {
+    color: #000;
+}
+
+/* navbar hamburger icon */
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #000;
+    margin-bottom: 5px;
+}
+
+.navbar-toggle {
+    margin-top: 23px;
+}
+
+/* navbar collapse (responsive) */
+
+.navbar-collapse.in {
+    overflow-y: auto;
+}
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+.collapse {
+  display: none;
+}
+.collapse.in {
+  display: block;
+}
+tr.collapse.in {
+  display: table-row;
+}
+tbody.collapse.in {
+  display: table-row-group;
+}
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
+  transition: height 0.35s ease;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-collapse {
+        padding-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+/* front page */
+.jumbotron {
+    background: url('/img/jumbobg.jpg') center;
+    height: 446px;
+    padding-top: 20px;
+}
+
+.jumbotron h2 {
+    margin-top: 4.5em;
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 1.0);
+    color: #333;
+    font-size: 28px;
+}
+
+@media (min-width: 768px) {
+    .jumbotron h2 {
+        margin-top: 140px;
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .jumbotron h2 {
+        max-width: 66%;
+    }
+}
+
+section.light {
+    background-color: #fff;
+}
+
+section.last {
+    border-top: 0;
+    padding: 3em 0;
+}
+
+section#features {
+    /* background: #EEEEEE; */
+    background-color: #f7f7f7;
+    text-align: justify;
+}
+
+section#features h2 {
+    margin: 0 0 4px 0;
+}
+
+.window-shadow {
+    -moz-box-shadow:    0px 4px 11px 0px rgba(0,0,0,0.56);
+    box-shadow:         0px 4px 11px 0px rgba(0,0,0,0.56);
+}
+
+.ficon {
+    text-align: center;
+    font-size: 25px;
+}
+
+.ficon h3 {
+    margin-top: -.2em;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.feature {
+    text-shadow: 1px 1px 0px #ffffff;
+}
+
+.feature.lastf {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    section.feature h2 {
+        margin: 0 0 .3em 0;
+    }
+    section.feature {
+        padding: 2em 0 3em 0;
+    }
+    section#features h3 {
+        margin: 0 0 .2em 0;
+    }
+}
+
+.citation {
+    margin-top: 3em;
+    color: #ccc;
+    font-size: 80%;
+}
+
+/* about */
+section.about {
+    padding-bottom:0em;
+}
+
+.about h2, .sponsors {
+    text-align: center;
+}
+
+.sponsors img {
+    padding: 1.5em 0;
+}
+
+/* getting started */
+.getting-started {
+    background-color: #fff;
+}
+
+article#about {
+    background-color: #fff;
+}
+
+@media (max-width: 767px) {
+    .sponsors img {
+        display: block;
+        width: 100% \9;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+/* footer */
+
+.footnav {
+    margin-bottom: 3em;
+}
+section#footer {
+    color: #fff;
+    padding: 50px 0;
+    position: relative;
+    background: url('/img/darkgray.png') #454545;
+    margin-bottom: 0;
+}
+
+section#footer nav {
+    display: table;
+    margin: 0 auto;
+}
+
+section#footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+section#footer ul > li {
+    float: left;
+    padding-right: 1em;
+}
+
+section#footer ul > li:last-child {
+    padding-right: 0;
+}
+
+section#footer a:link, section#footer a:visited {
+    color: #fff;
+}
+
+section#footer a:hover {
+    color: #ccc;
+    text-decoration: none;
+}
+
+section#footer p, section#footer nav {
+    text-shadow: 0 1px 2px #222;
+}
+
+footer p {
+    margin: 0;
+}
+
+#footer li > p {
+    color: #bbb;
+}
+
+@media (min-width: 768px) {
+    #footer li > p {
+        display: none;
+    }
+}
+
+/* responsive collapse */
+@media (max-width: 767px) {
+    #footer li {
+        margin-bottom: .5em;
+    }
+    section#footer ul > li {
+        padding-right: 0;
+        float: none;
+    }
+    section#footer ul {
+        text-align: center;
+    }
+}
+
+.rodan-goto-form {
+    line-height: 25px !important;
+}
+
+/* .rodan-goto-form {
+    float: right;
+}
+.rodan-page-label {
+    float: right;
+    padding-right: 4px !important;
+}
+.rodan-buttons-label {
+    padding: 5px 10px !important;
+}
+.rodan-input {
+    width: 38px;
+}
+hr.underline {
+    margin-top: 0;
+} */
+
+/* styles for rodan on small mobile devices */
+@media screen and (max-width: 480px) {
+    .rodan-outer {
+        height: 400px;
+    }
+
+    .rodan-buttons-label {
+        float: none;
+        padding: 0px 0px !important;
+    }
+
+    .rodan-tools .rodan-tools-left .rodan-buttons-label {
+        float: none;
+    }
+
+    .rodan-tools .rodan-tools-right {
+        float: none;
+    }
+
+    .rodan-tools .rodan-tools-right .rodan-page-nav .rodan-goto-form {
+        float: none;
+        padding-top: 0;
+    }
+
+    .rodan-tools .rodan-tools-right .rodan-page-nav .rodan-goto-form .rodan-input {
+        /* padding-top: inherit; */
+    }
+
+    .rodan-goto-form input[type="submit"] {
+        padding:3px .4em;
+    }
+
+    .rodan-page-nav {
+        float: right !important;
+        line-height: inherit !important;
+    }
+
+    .rodan-page-label {
+        line-height: inherit !important;
+        /* not sure if all of these need to be here */
+        float: left;
+        padding-top: 1px;
+        padding-right: .5em;
+    }
+}
+
+/* documentation */
+#documentation h3 {
+    margin-bottom: 2em;
+}
+#documentation .btn {
+    margin-top: 2em;
+}
+
+/* front page banner */
+section.banner {
+    padding: 0.5em 0;
+    text-align: center;
+    background: rgb(215, 231, 255);
+}
+section.banner a:link, section.banner a:visited {
+    color: #595E63;
+}
+
+section.banner h3 {
+    margin: 0.7em 0;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+}
+

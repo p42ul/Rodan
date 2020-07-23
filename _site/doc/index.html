@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Rodan - Documentation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/img/rodan-logo-sm.png" /></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <ul class="nav navbar-nav navbar-right navbar-collapse collapse">
+            <li><a href="/download/">Download</a></li>
+            <li><a href="/doc/">Documentation</a></li>
+            <li><a href="http://github.com/ddmal/rodan">GitHub</a></li>
+            <li><a href="/about/">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<article id="documentation">
+    <section class="light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4">
+                    <h3>About Rodan</h3>
+                    <p>
+                    Rodan is a generic workflow execution system, where users can upload files (called "Resources") and define an 
+                    execution chain (a "Workflow") for processing these files. Each workflow is composed of "Jobs," the functionality 
+                    of which can be drawn from a shell executable or a Python library. Running a workflow will pass the resources through
+                    the chain of jobs, finishing with the output of the last job.
+                    </p>
+                    <p>
+                    A unique feature of Rodan is the "Interactive Job" system. During the execution of a workflow, an interactive job
+                    will allow human actors to complete a task as part of the workflow. This can be for quality control (verifying the output
+                    of an automated process), correction (adjusting the output of an automated process), or task completion (tasks for which humans
+                    perform better than machines).
+                    </p>
+                    <p>
+                    The Rodan server is accessed and controlled via a REST API, making it possible to create a wide variety of user interfaces and scripts
+                    to interact with and control workflow creation and execution. The Rodan Client is a general-purpose user interface, but other
+                    dedicated user interfaces can be created to interact with a particular part of the workflow process; for example, crowdsourcing interfaces
+                    may be built to distribute interactive job processes to a large audience of human actors.
+                    </p>
+                    <p>
+                    Rodan automatically parallelizes resource processing over a number of available worker systems. This provides the ability to
+                    process large numbers of files given a suitably large cluster of available computer systems. Once a job has finished executing, the
+                    output of the process is stored centrally, allowing the output of any job to be the input of any other job in a different workflow.
+                    </p>
+                    <p>To find out more about Rodan, please see the full documentation on our GitHub wiki.</p>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4">
+                    <h3>Dependency Overview</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                        <p><img src="/img/rodan-softwares/celery.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>Celery</big>: Celery is the task queue used by Rodan to distribute the tasks to the workers</p>
+                        <p><img src="/img/rodan-softwares/rabbitmq.png" style=" height: 39px; margin:0px 20px 0px 0px;"> <big>RabbitMQ</big>: RabbitMQ is the messaging broker used to connect Rodan server to Celery</p>
+                        <p><img src="/img/rodan-softwares/nfs.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>NFS</big>: Network File System (NFS) helps the workers to access the resources on the server</p>
+                        <p><img src="/img/rodan-softwares/redis.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>Redis</big>: Redis is used as message broker for backend websocket messaging</p>
+                        <p><img src="/img/rodan-softwares/nginx.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>Nginx</big>: Nginx is the HTTP and reverse proxy server used to connect Rodan to Internet</p>
+                        <p><img src="/img/rodan-softwares/wsgi.png" style="height: 39px; margin:0px 20px 0px 0px;"> <big>WSGI</big>: Web Server Gateway Interface (WSGI) is used as the interface between nginx and Django</p>                        <p><img src="/img/rodan-softwares/postgresql.png" style="width:39px; height 39px; margin:0px 20px 0px 0px" align="left"> <big>PostgreSQL</big>: PostgreSQL is the database system used by Rodan</p>
+                </div>
+                <div class="col-md-4">
+                    <p><img src="/img/rodan-softwares/rodan-softwares.png"/ border="0" style="max-width:120%"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Entity-Relationship Diagram for Rodan</h3>
+                    <img src="/img/rodan-model.png" style="max-width:100%">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <p><a href="http://github.com/DDMAL/rodan/wiki" target="_blank" class="text-center btn btn-primary">View the full documentation on Github.</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+<section id="footer">
+    <div class="container">
+        <footer>
+        <div class="row">
+            <div class="col-md-12 footnav">
+                <nav>
+                    <ul>
+                        <li><p>Rodan</p></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/download/">Download</a></li>
+                        <li><a href="/doc/">Documentation</a></li>
+                        <li><a href="https://github.com/DDMAL/Rodan">GitHub</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="http://ddmal.music.mcgill.ca"><img src="/img/ddmal-logo.png" alt="Distributed Digital Music Archives and Libraries" /></a>
+                <p>2016 Distributed Digital Music Archives and Libraries</p>
+        </div>
+        </footer>
+    </div>
+</section>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="/js/vendor/bootstrap.min.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script type="text/javascript">
+(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+e.src='//www.google-analytics.com/analytics.js';
+r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+ga('create','UA-2371659-5');ga('send','pageview');
+</script>
+
+</body>
+</html>
+
