@@ -320,4 +320,6 @@ urlpatterns += format_suffix_patterns(api_patterns, allowed=["json", "html"])
 
 # For serving stuff in debug mode only
 if settings.DEBUG:
+    import debug_toolbar  # noqa
     urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [url(r'^api/__debug__/', include(debug_toolbar.urls))]

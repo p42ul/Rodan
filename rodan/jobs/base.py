@@ -387,10 +387,24 @@ class RodanTaskType(TaskType):
                             resource_types = RodanTaskType._resolve_resource_types(
                                 attrs_pt["resource_types"]
                             )
-                            rt_code = set(map(lambda rt: rt.mimetype, resource_types))
-                            rt_db = set(
-                                map(lambda rt: rt.mimetype, pt.resource_types.all())
-                            )
+
+                            if rodan_settings.DEBUG:
+                                try:
+                                    rt_code = set(map(lambda rt: rt.mimetype, resource_types))
+                                except TypeError:
+                                    rt_code = set()
+                                try:
+                                    rt_db = set(
+                                        map(lambda rt: rt.mimetype, pt.resource_types.all())
+                                    )
+                                except TypeError:
+                                    rt_db = set()
+                            else:
+                                rt_code = set(map(lambda rt: rt.mimetype, resource_types))
+                                rt_db = set(
+                                        map(lambda rt: rt.mimetype, pt.resource_types.all())
+                                    )
+
                             if rt_code != rt_db:
                                 if not UPDATE_JOBS:
                                     raise ImproperlyConfigured(

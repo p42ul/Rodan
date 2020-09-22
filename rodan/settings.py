@@ -495,8 +495,23 @@ if TEST:
 ###############################################################################
 # 3.c  Docker Health Checks
 ###############################################################################
-
 HEALTH_CHECK = {
     'DISK_USAGE_MAX': 90,  # percent
     'MEMORY_MIN': 100,    # in MB
 }
+
+###############################################################################
+# 3.d  Additional Debug tool
+###############################################################################
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
+    MIDDLEWARE_CLASSES += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+    INTERNAL_IPS = [
+        "*"
+    ]
+    def show_toolbar(request):
+        return DEBUG
+
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': 'rodan.settings.show_toolbar',
+    }
